@@ -4,29 +4,31 @@ function newItem(){
   let li = $('<li></li>');
 
   let inputValue = $('#input').val();
-  li.append(inputValue);
+  list.append(inputValue);
 
-  $("#button").on("keypress",function(e){
-    if(inputValue === " " && e.keyCode == 13){
-      alert("Enter an item");
-    }
-    else{
-      list.append(li);
-    }
 }
 
+// To strike items
 
+function strike(){
 
+  li.addClass('strike');
+}
 li.on('click',function strike(){
-    li.addClass('strike');
+  li.toggleClass('strike');
 });
 
-  let crossOutButton = $('<crossOutButton></<crossOutButton>');
-  crossOutButton.append(document.createTextNode('X'));
-  li.append(crossOutButton);
+// display cross crossOutButton
+let crossOutButton = $('<crossOutButton></<crossOutButton>');
+crossOutButton.append(document.createTextNode('X'));
+li.append(crossOutButton);
 
+// to delete the items
 
-  crossOutButton.on('click',deleteItem);
-  function deleteItem(){
-    li.addClass('delete');
-  }
+crossOutButton.on('click',deleteItem);
+function deleteItem(){
+  li.addClass('delete');
+}
+
+// to sort the items
+list.sortable();
