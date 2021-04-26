@@ -4,17 +4,13 @@ function newItem(){
   let li = $('<li></li>');
 
   let inputValue = $('#input').val();
-  list.append(inputValue);
+  li.append(inputValue);
 
-}
+
 
 // To strike items
 
-function strike(){
-
-  li.addClass('strike');
-}
-li.on('click',function strike(){
+li.on("dblclick",function strike(){
   li.toggleClass('strike');
 });
 
@@ -29,6 +25,7 @@ crossOutButton.on('click',deleteItem);
 function deleteItem(){
   li.addClass('delete');
 }
-
+list.append(li);
 // to sort the items
 list.sortable();
+}
